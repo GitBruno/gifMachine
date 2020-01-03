@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGifEncoder.h"
 
 class ofApp : public ofBaseApp{
 
@@ -20,5 +21,16 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+        void onGifSaved(string & fileName);
+        void exit();
+
+        ofxGifEncoder gifEncoder;
+        ofImage img;
+
+        int gifW {ofGetWidth()};
+        int gifH {ofGetHeight()};
+        int framesTotal {30};
+        int framesCurr {0};
+
+        bool isRecording {true};
 };
